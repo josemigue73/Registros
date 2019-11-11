@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a8b1f40c-62f4-4ddc-a16f-0dd49017cb6d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="4273c543-7f68-416c-9dc9-2093b575879d"/>
+	<subDataset name="dataset2" uuid="eb4345ac-a1f6-4b58-8731-9f2f24fbd1d8"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     estudiantes.`Cod_Estudiantes` AS estudiantes_Cod_Estudiantes,
+     estudiantes.`Nombres` AS estudiantes_Nombres,
+     estudiantes.`P_apellido` AS estudiantes_P_apellido,
+     estudiantes.`S_apellido` AS estudiantes_S_apellido,
+     estudiantes.`Telefono` AS estudiantes_Telefono,
+     estudiantes.`Direccion` AS estudiantes_Direccion,
+     estudiantes.`Tipo_Documento` AS estudiantes_Tipo_Documento,
+     estudiantes.`Num_Documento` AS estudiantes_Num_Documento,
+     estudiantes.`Año_Ingreso` AS estudiantes_Año_Ingreso,
+     estudiantes.`Fecha_nacimiento` AS estudiantes_Fecha_nacimiento
+FROM
+     `estudiantes` estudiantes]]>
+	</queryString>
+	<field name="estudiantes_Cod_Estudiantes" class="java.lang.Integer"/>
+	<field name="estudiantes_Nombres" class="java.lang.String"/>
+	<field name="estudiantes_P_apellido" class="java.lang.String"/>
+	<field name="estudiantes_S_apellido" class="java.lang.String"/>
+	<field name="estudiantes_Año_Ingreso" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="5078b779-01ae-48c7-9079-607b77bb58f2"/>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="43" forecolor="#FFFFFF" uuid="c1891a12-b275-4f0b-8869-8c2707857fc2"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Institucion Educativa el Porvenir ]]></text>
+				</staticText>
+				<elementGroup>
+					<staticText>
+						<reportElement x="20" y="72" width="444" height="20" forecolor="#FFFFFF" uuid="a61ba749-cb0d-4851-87fa-2f38c47e4a2c"/>
+						<textElement>
+							<font size="14" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Listado de Estudiantes Matriculados  para el año ]]></text>
+					</staticText>
+				</elementGroup>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+					<reportElement mode="Transparent" x="375" y="72" width="89" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="ad7023a6-ef2f-40b6-9037-252f44bb1a43"/>
+					<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+						<font fontName="SansSerif" size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{estudiantes_Año_Ingreso}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="22"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3a3396f3-4963-413b-bdce-8355aede5b91"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="1" width="80" height="19" forecolor="#006699" backcolor="#E6E6E6" uuid="d8303bc1-6e40-4c41-88d9-cb6d8fcd08a8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="244" y="0" width="311" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aa395cc0-8a7a-4fba-bff0-bcc638577d15"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="1" width="164" height="19" forecolor="#006699" backcolor="#E6E6E6" uuid="84112d64-c587-4a13-9535-ec5dccfb0573"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="80" height="20" uuid="7268e966-d390-4c32-a03f-1491d6d0a3c7"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estudiantes_Cod_Estudiantes}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="0" width="164" height="19" uuid="1595d165-1d11-4038-b47a-17d4ad1a3154"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estudiantes_Nombres}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="404" y="0" width="151" height="20" uuid="63bbaca9-2bf7-428f-bf66-afea7d74be00"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estudiantes_S_apellido}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="244" y="0" width="160" height="20" uuid="46a19e44-849e-4817-a336-f882ff5e69c1"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estudiantes_P_apellido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="db8f6f32-80fa-4439-8d74-9cccac5b4ce7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="3d84ffb0-faa7-4f1f-b8a0-decd79eb3d13"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="21f7b230-914a-4ec4-ab22-e7e97ef2dde4"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
