@@ -3,41 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package registros.Datos;
+package datos;
 
 import java.sql.Date;
 
 
 /**
  *
- *
+
  */
-public class ClaseEstudiantes {
+public class vestudiantes {
      
     
     private int Cod_Estudiantes;
     private String Nombres;
-    private String Primer_Apellido;
-    private String Segundo_Apellido;
+    private String P_apellido;
+    private String S_apellido;
     private String Tipo_Documento;
     private String Num_Documento;
     private String Telefono;
     private String Direccion;    
     private String Año_Ingreso;
-    private String Fecha_nacimiento;
+    private Date Fecha_nacimiento;
    
    
     
 
-    public ClaseEstudiantes() {
+    public vestudiantes() {
         
     }
 
-    public ClaseEstudiantes(int Cod_Estudiantes, String Nombres, String Primer_Apellido, String Segundo_Apellido, String Tipo_Documento, String Num_Documento, String Telefono, String Direccion, String Año_Ingreso, String Fecha_nacimiento) {
+    public vestudiantes(int Cod_Estudiantes, String Nombres, String P_apellido, String S_apellido, String Tipo_Documento, String Num_Documento, String Telefono, String Direccion, String Año_Ingreso, Date Fecha_nacimiento) {
         this.Cod_Estudiantes = Cod_Estudiantes;
         this.Nombres = Nombres;
-        this.Primer_Apellido = Primer_Apellido;
-        this.Segundo_Apellido = Segundo_Apellido;
+        this.P_apellido = P_apellido;
+        this.S_apellido = S_apellido;
         this.Tipo_Documento = Tipo_Documento;
         this.Num_Documento = Num_Documento;
         this.Telefono = Telefono;
@@ -62,20 +62,20 @@ public class ClaseEstudiantes {
         this.Nombres = Nombres;
     }
 
-    public String getPrimer_Apellido() {
-        return Primer_Apellido;
+    public String getP_apellido() {
+        return P_apellido;
     }
 
-    public void setPrimer_Apellido(String Primer_Apellido) {
-        this.Primer_Apellido = Primer_Apellido;
+    public void setP_apellido(String P_apellido) {
+        this.P_apellido = P_apellido;
     }
 
-    public String getSegundo_Apellido() {
-        return Segundo_Apellido;
+    public String getS_apellido() {
+        return S_apellido;
     }
 
-    public void setSegundo_Apellido(String Segundo_Apellido) {
-        this.Segundo_Apellido = Segundo_Apellido;
+    public void setS_apellido(String S_apellido) {
+        this.S_apellido = S_apellido;
     }
 
     public String getTipo_Documento() {
@@ -118,11 +118,11 @@ public class ClaseEstudiantes {
         this.Año_Ingreso = Año_Ingreso;
     }
 
-    public String getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return Fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(String Fecha_nacimiento) {
+    public void setFecha_nacimiento(Date Fecha_nacimiento) {
         this.Fecha_nacimiento = Fecha_nacimiento;
     }
 
