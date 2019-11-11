@@ -22,3 +22,13 @@ Cod: 0621063001
 Cristian Camilo Loaiza Angulo
 
 Cod: 1811980171
+
+
+Se habilita la conexion de base de datos MySQL usando un repositorio en la nube con el proveedor de servicios Azure (Suscripción para estudiantes del Poli)
+
+Credenciales:
+Servidor                        :iotpoligran.mysql.database.azure.com
+Username                        :rirojasp@iotpoligran
+Password                        :Bdmsmj2305.
+
+Y se configura en azure la regla para permitir todas la Ips de los participantes del proyecto.
