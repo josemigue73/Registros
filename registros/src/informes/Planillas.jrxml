@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="870186a6-8c10-4428-8ec2-9b372c6c9f7a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     concat(estudiantes.`Nombres`,' ',estudiantes.`P_apellido`,' ',estudiantes.`S_apellido`) AS estudiante,
+     matriculas.`Cod_Estudiantes` AS matriculas_Cod_Estudiantes,
+     matriculas.`Año_Matricula` AS matriculas_Año_Matricula,
+     matriculas.`Grado` AS matriculas_Grado,
+     matriculas.`Grupo` AS matriculas_Grupo
+FROM
+     `estudiantes` estudiantes INNER JOIN `matriculas` matriculas ON estudiantes.`Cod_Estudiantes` = matriculas.`Cod_Estudiantes`]]>
+	</queryString>
+	<field name="estudiante" class="java.lang.String"/>
+	<field name="matriculas_Cod_Estudiantes" class="java.lang.Integer"/>
+	<field name="matriculas_Año_Matricula" class="java.lang.String"/>
+	<field name="matriculas_Grado" class="java.lang.String"/>
+	<field name="matriculas_Grupo" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="2" width="153" height="77" uuid="f66fae23-3a7d-4536-be57-d9324e980bd9"/>
+				<imageExpression><![CDATA["D:\\proyecto\\RegistrosAcademicos\\src\\Iconos\\images (1).jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="127" y="-1" width="428" height="80" backcolor="#006699" uuid="c6a4683e-f86d-455c-83c9-20706674ffc0"/>
+				<staticText>
+					<reportElement x="0" y="0" width="428" height="43" forecolor="#FFFFFF" uuid="17d218a5-ffc2-44b4-971a-67bcaada0d75"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Institucion Educativa el Porvenir ]]></text>
+				</staticText>
+				<elementGroup>
+					<staticText>
+						<reportElement x="1" y="43" width="427" height="20" forecolor="#FFFFFF" uuid="4736b54e-8ec6-4960-8cfc-bc40ca30ef4a"/>
+						<textElement>
+							<font size="14" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Listado de Estudiantes por Grado ]]></text>
+					</staticText>
+				</elementGroup>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="100" height="20" uuid="28470315-8026-4372-b40d-80a51d3df677"/>
+				<textFieldExpression><![CDATA[$F{matriculas_Año_Matricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="15" width="100" height="20" uuid="ee45e133-3a84-479d-96c3-cdee4ad60a6f"/>
+				<textFieldExpression><![CDATA[$F{matriculas_Grado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="15" width="100" height="20" uuid="887cca83-9cc8-44c3-a782-1363e384d089"/>
+				<textFieldExpression><![CDATA[$F{matriculas_Grupo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="127" y="2" width="296" height="20" uuid="8eb2d94a-9b42-4c60-bbdd-2a40f3ad8128"/>
+				<textFieldExpression><![CDATA[$F{estudiante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="9db84bb9-6689-4d35-9fd0-c24327015ba9"/>
+				<textFieldExpression><![CDATA[$F{matriculas_Cod_Estudiantes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

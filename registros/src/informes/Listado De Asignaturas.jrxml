@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3e365a78-0424-428f-b85f-6edbd77d6b5e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     asignaturas.`IdAsignatura` AS asignaturas_IdAsignatura,
+     asignaturas.`Cod_Asignatura` AS asignaturas_Cod_Asignatura,
+     asignaturas.`Nom_Asignatura` AS asignaturas_Nom_Asignatura,
+     asignaturas.`Int_Horaria` AS asignaturas_Int_Horaria,
+     asignaturas.`Grado` AS asignaturas_Grado
+FROM
+     `asignaturas` asignaturas
+ORDER BY
+     asignaturas.`Grado` ASC]]>
+	</queryString>
+	<field name="asignaturas_IdAsignatura" class="java.lang.Integer"/>
+	<field name="asignaturas_Cod_Asignatura" class="java.lang.String"/>
+	<field name="asignaturas_Nom_Asignatura" class="java.lang.String"/>
+	<field name="asignaturas_Int_Horaria" class="java.lang.Integer"/>
+	<field name="asignaturas_Grado" class="java.lang.String"/>
+	<group name="asignaturas_Grado">
+		<groupExpression><![CDATA[$F{asignaturas_Grado}]]></groupExpression>
+		<groupHeader>
+			<band height="64">
+				<textField>
+					<reportElement style="SubTitle" x="78" y="17" width="202" height="24" forecolor="#333333" uuid="d4747c6a-7e5a-488f-93b9-5fa4f1cb506a"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{asignaturas_Grado}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="144" y="49" width="185" height="15" uuid="df1b4018-1579-4ce8-a2eb-ad2eab5c835e"/>
+					<text><![CDATA[Nombre Asignatura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="414" y="49" width="126" height="15" uuid="4a1d93cd-3113-4bba-8160-4b33f571a20e"/>
+					<textElement textAlignment="Center"/>
+					<text><![CDATA[Int_Horaria]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="0" y="49" width="123" height="15" uuid="ca31596f-c53b-40e4-879e-5b336b4413c1"/>
+					<text><![CDATA[Cod Asignatura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="0" y="17" width="78" height="24" uuid="d07e1cf5-fdd1-4d93-92a3-c0fb88470973"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Grado]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="13"/>
+		</groupFooter>
+	</group>
+	<group name="asignaturas_Cod_Asignatura">
+		<groupExpression><![CDATA[$F{asignaturas_Cod_Asignatura}]]></groupExpression>
+		<groupHeader>
+			<band height="2"/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="5" width="263" height="33" uuid="c8dd7683-9127-4672-8563-cf204b1a0647"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Wood Title]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="63" y="39" width="200" height="22" forecolor="#FFFFFF" uuid="01332443-9817-4d4f-9f4f-63d574999e05"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Wood SubTitle]]></text>
+			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="-10" y="-10" width="565" height="80" backcolor="#006699" uuid="e5c3f33d-a800-452d-92f8-81a490a86c7b"/>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="43" forecolor="#FFFFFF" uuid="da6c0b40-6808-443d-a481-d9109ac503e7"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Institucion Educativa el Porvenir ]]></text>
+				</staticText>
+				<elementGroup>
+					<staticText>
+						<reportElement x="32" y="52" width="444" height="20" forecolor="#FFFFFF" uuid="8aaa59e4-267e-43b0-84ac-1f5925541627"/>
+						<textElement>
+							<font size="14" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Listado de Asignaturas por Grado ]]></text>
+					</staticText>
+				</elementGroup>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="ab60b83f-b993-429c-903e-f514652edaae"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="144" y="1" width="243" height="15" uuid="186415c4-7ca2-41ca-a105-83c44b2b8f94"/>
+				<textFieldExpression><![CDATA[$F{asignaturas_Nom_Asignatura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="141" height="15" uuid="2c547ef0-b47f-49be-a369-91815301123b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{asignaturas_Int_Horaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="SubTitle" x="0" y="1" width="112" height="15" uuid="979935b3-3a61-41d0-8bf5-f496232938ac"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asignaturas_Cod_Asignatura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="17" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="4413609f-c502-424c-91da-030dd5e0211d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="d2001557-755a-4c71-8659-eaf2ab42bbc1"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="9c6b8523-c731-48e1-822f-af847ac0dc7a"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="4c410356-011a-4dfe-a839-a69e9eb329b4"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

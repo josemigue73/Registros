@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="db6726b6-4307-43da-82eb-5994dd9a01b2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     asignaturas.`IdAsignatura` AS asignaturas_IdAsignatura,
+     asignaturas.`Cod_Asignatura` AS asignaturas_Cod_Asignatura,
+     asignaturas.`Nom_Asignatura` AS asignaturas_Nom_Asignatura,
+     asignaturas.`Int_Horaria` AS asignaturas_Int_Horaria,
+     asignaturas.`Grado` AS asignaturas_Grado
+FROM
+     `asignaturas` asignaturas]]>
+	</queryString>
+	<field name="asignaturas_IdAsignatura" class="java.lang.Integer"/>
+	<field name="asignaturas_Cod_Asignatura" class="java.lang.String"/>
+	<field name="asignaturas_Nom_Asignatura" class="java.lang.String"/>
+	<field name="asignaturas_Int_Horaria" class="java.lang.Integer"/>
+	<field name="asignaturas_Grado" class="java.lang.String"/>
+	<group name="asignaturas_Grado">
+		<groupExpression><![CDATA[$F{asignaturas_Grado}]]></groupExpression>
+		<groupHeader>
+			<band height="25">
+				<textField>
+					<reportElement mode="Opaque" x="111" y="0" width="444" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="58d1dd65-e893-4161-b01f-fc36d7411e76"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{asignaturas_Grado}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="b5e1476c-6fc8-4517-a273-89a749b6cd7e"/>
+				<staticText>
+					<reportElement x="20" y="0" width="555" height="43" forecolor="#FFFFFF" uuid="e1423d81-6cdf-4fd1-8267-8ab0f2dbb5b0"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Institucion Educativa el Porvenir ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="c8734d90-3105-48e8-81fa-cc955a3be013"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="99fd0849-0d70-42a4-8c03-3e29660421b7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[asignaturas_Cod_Asignatura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f0dfbe4f-3087-4231-ab87-fc5845bd8ee4"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[asignaturas_Nom_Asignatura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="474" y="0" width="78" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0a65963d-fc03-4c08-ad8d-f4d6a1f182fc"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Int_Horaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="111" height="21" forecolor="#666666" backcolor="#E6E6E6" uuid="5df9568a-356e-46d5-9807-924cb1f7c677"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[asignaturas_Grado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="d29c784c-bfa9-4e03-a542-f025f40b548a"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="d0e482a1-1799-481e-a333-9f9360f2dc41"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asignaturas_IdAsignatura}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="24419079-3523-41db-83c9-028d0aead293"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asignaturas_Cod_Asignatura}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="5d2c90d9-8e7f-4842-8aaf-9e227e2be1f6"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asignaturas_Nom_Asignatura}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="474" y="0" width="78" height="20" uuid="3766c0bc-dbc5-4bb1-846f-b3f49f0bbb1a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asignaturas_Int_Horaria}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="fb80a105-33c3-434e-9eba-e9faf2575c49"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="ba312f5e-7296-4a46-89fd-a7a49bd1aac9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="ef76ed2e-34aa-454a-a5c3-edfd6cd80e74"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

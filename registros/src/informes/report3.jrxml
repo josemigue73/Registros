@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b146b51-6990-44df-9334-6a0b1b60b7ac">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="Grado" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     matriculas.`Cod_Estudiantes` AS matriculas_Cod_Estudiantes,
+     matriculas.`Año_Matricula` AS matriculas_Año_Matricula,
+     matriculas.`Grado` AS matriculas_Grado,
+     matriculas.`Grupo` AS matriculas_Grupo,
+     concat(estudiantes.`Nombres`,' ',
+     estudiantes.`P_apellido`,' ',
+     estudiantes.`S_apellido`) AS estudiantes
+FROM
+     `estudiantes` estudiantes INNER JOIN `matriculas` matriculas ON estudiantes.`Cod_Estudiantes` = matriculas.`Cod_Estudiantes`
+where matriculas.`Grado`=$P{Grado}]]>
+	</queryString>
+	<field name="matriculas_Cod_Estudiantes" class="java.lang.Integer"/>
+	<field name="matriculas_Año_Matricula" class="java.lang.String"/>
+	<field name="matriculas_Grado" class="java.lang.String"/>
+	<field name="matriculas_Grupo" class="java.lang.String"/>
+	<field name="estudiantes" class="java.lang.String"/>
+	<group name="matriculas_Grado">
+		<groupExpression><![CDATA[$F{matriculas_Grado}]]></groupExpression>
+		<groupHeader>
+			<band height="38">
+				<rectangle>
+					<reportElement mode="Opaque" x="0" y="11" width="36" height="24" forecolor="#CCCCCC" backcolor="#CCCCCC" uuid="1cc70926-fc06-432a-aaef-b6b77bf9e7c3"/>
+				</rectangle>
+				<textField>
+					<reportElement style="SubTitle" x="47" y="0" width="506" height="24" forecolor="#333333" uuid="d82c7eb6-bb46-4138-b414-eb0a368bac5e"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{matriculas_Grado}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20"/>
+		</groupFooter>
+	</group>
+	<group name="matriculas_Grupo">
+		<groupExpression><![CDATA[$F{matriculas_Grupo}]]></groupExpression>
+		<groupHeader>
+			<band height="52">
+				<rectangle radius="10">
+					<reportElement x="0" y="0" width="555" height="49" uuid="ca144b3a-f9c4-4856-bb02-381773094cf1"/>
+				</rectangle>
+				<textField>
+					<reportElement style="SubTitle" x="24" y="14" width="185" height="20" uuid="b8f9ff8b-2850-4cdd-ae46-d4f3dbfa465f"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{matriculas_Grupo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="24" y="34" width="150" height="15" uuid="85750da9-80e9-4000-936c-9d4f27295bee"/>
+					<text><![CDATA[Codigo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="229" y="19" width="118" height="15" uuid="5c39938d-bd5d-48d0-8f26-f3d7908dba1a"/>
+					<text><![CDATA[Periodo	]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="185" y="34" width="368" height="15" uuid="55160d6b-01bc-4c14-b88e-503085e27f10"/>
+					<text><![CDATA[estudiantes]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Detail" x="368" y="19" width="185" height="15" uuid="95a92e10-9e87-42fa-b3f3-3d4c124b7545"/>
+					<textFieldExpression><![CDATA[$F{matriculas_Año_Matricula}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="125" y="0" width="428" height="80" backcolor="#006699" uuid="3ae10a1a-d95e-4dab-b4df-7803414e0d14"/>
+				<staticText>
+					<reportElement x="0" y="0" width="428" height="43" forecolor="#FFFFFF" uuid="05f03ee1-3ba6-48f4-b783-f7e530b6f725"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Institucion Educativa el Porvenir ]]></text>
+				</staticText>
+				<elementGroup>
+					<staticText>
+						<reportElement x="1" y="43" width="427" height="20" forecolor="#FFFFFF" uuid="4d489896-114a-4615-bafc-c2717436ee7c"/>
+						<textElement>
+							<font size="14" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Listado de Estudiantes por Grado ]]></text>
+					</staticText>
+				</elementGroup>
+			</frame>
+			<image>
+				<reportElement x="0" y="0" width="126" height="77" uuid="0fafbedf-2a83-42e9-9d19-ced9119e284f"/>
+				<imageExpression><![CDATA["D:\\proyecto\\RegistrosAcademicos\\src\\Iconos\\images (1).jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="11" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="8e822c05-84ea-49c0-b91f-d9473a655449"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="24" y="1" width="146" height="15" uuid="6603418b-93d8-4596-9ac5-18115cdd7583"/>
+				<textFieldExpression><![CDATA[$F{matriculas_Cod_Estudiantes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="185" y="1" width="354" height="15" uuid="627dd16c-e666-4c8a-9cad-8465930ebb8b"/>
+				<textFieldExpression><![CDATA[$F{estudiantes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="28de7f13-3d1c-4fc1-a210-b9c7f384aef5"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="450d4ace-adc8-4e56-9e08-0f73510a911f"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="a7c615da-5be2-4e25-a507-33624ee34137"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="abe9c3c1-6a79-40c4-84cc-55b166ec0deb"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

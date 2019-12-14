@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="9eeaff93-437e-43fd-ba67-95e3cdffbbf7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     asignaturas.`IdAsignatura` AS asignaturas_IdAsignatura,
+     asignaturas.`Cod_Asignatura` AS asignaturas_Cod_Asignatura,
+     asignaturas.`Nom_Asignatura` AS asignaturas_Nom_Asignatura,
+     asignaturas.`Int_Horaria` AS asignaturas_Int_Horaria,
+     asignaturas.`Grado` AS asignaturas_Grado,
+     tab_logros.`IdLogros` AS tab_logros_IdLogros,
+     tab_logros.`Cod_Asignatura` AS tab_logros_Cod_Asignatura,
+     tab_logros.`Descripcion` AS tab_logros_Descripcion,
+     tab_logros.`Grado` AS tab_logros_Grado
+FROM
+     `asignaturas` asignaturas INNER JOIN `tab_logros` tab_logros ON asignaturas.`Cod_Asignatura` = tab_logros.`Cod_Asignatura`]]>
+	</queryString>
+	<field name="tab_logros_Cod_Asignatura" class="java.lang.String"/>
+	<field name="asignaturas_Nom_Asignatura" class="java.lang.String"/>
+	<field name="tab_logros_Grado" class="java.lang.String"/>
+	<field name="tab_logros_IdLogros" class="java.lang.Integer"/>
+	<field name="tab_logros_Descripcion" class="java.lang.String"/>
+	<group name="tab_logros_Grado">
+		<groupExpression><![CDATA[$F{tab_logros_Grado}]]></groupExpression>
+		<groupHeader>
+			<band height="41">
+				<textField>
+					<reportElement style="SubTitle" x="216" y="11" width="295" height="24" forecolor="#000000" uuid="8afc4d27-3351-436b-9484-01eb60f3d49b"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tab_logros_Grado}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="97" y="11" width="109" height="22" uuid="7ea3e67d-9218-4ddf-9660-0e756dea8fc2"/>
+					<textElement>
+						<font fontName="Arial" size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grado]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="28"/>
+		</groupFooter>
+	</group>
+	<group name="tab_logros_Cod_Asignatura">
+		<groupExpression><![CDATA[$F{tab_logros_Cod_Asignatura}]]></groupExpression>
+		<groupHeader>
+			<band height="56">
+				<textField>
+					<reportElement style="SubTitle" x="0" y="4" width="572" height="20" uuid="d581f7b8-04da-4b5c-ba6f-8e3e2cd6f517"/>
+					<textElement>
+						<font size="16" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{tab_logros_Cod_Asignatura}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="260" y="9" width="251" height="15" uuid="1f36d0e1-e18e-4fcf-84ad-2c1d49b3682b"/>
+					<textFieldExpression><![CDATA[$F{asignaturas_Nom_Asignatura}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="2" y="30" width="109" height="17" uuid="70d4a421-6c2d-4529-b3bb-82ed45c526bf"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IdLogro]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="111" y="30" width="109" height="17" uuid="eefa4a90-210f-4e0d-8f46-a5355a55d6a9"/>
+					<textElement>
+						<font fontName="Arial" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Descripcio]]></text>
+				</staticText>
+				<line>
+					<reportElement x="3" y="47" width="554" height="3" uuid="5a5d77f9-f994-41de-9bb2-41a194c16965"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="575" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-10" y="-10" width="595" height="92" backcolor="#006699" uuid="94222ff4-8952-4675-9881-f54920df15da"/>
+				<staticText>
+					<reportElement x="0" y="0" width="555" height="43" forecolor="#FFFFFF" uuid="5edbe160-18b5-4958-95e0-f3340ccdf9b0"/>
+					<textElement textAlignment="Center">
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Institucion Educativa el Porvenir ]]></text>
+				</staticText>
+				<elementGroup>
+					<staticText>
+						<reportElement x="20" y="72" width="333" height="20" forecolor="#FFFFFF" uuid="d6ddf877-f1ba-4c7f-933b-dfb32a4e1eef"/>
+						<textElement textAlignment="Right">
+							<font size="14" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Listado de Logros y deficiencias]]></text>
+					</staticText>
+				</elementGroup>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch">
+			<elementGroup/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="2" width="557" height="29" uuid="64c7f6f2-ecbb-4812-9725-cb10b11d57cf"/>
+				<textField>
+					<reportElement style="Detail" x="174" y="6" width="383" height="23" uuid="4f6bccd4-c00d-43cf-8c2a-291345a87272"/>
+					<textFieldExpression><![CDATA[$F{tab_logros_Descripcion}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="2" y="6" width="146" height="23" uuid="d416ef20-fbb0-4ad5-be2f-8f43007b49d3"/>
+					<textFieldExpression><![CDATA[$F{tab_logros_IdLogros}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="131" height="20" forecolor="#000000" uuid="65601549-3adf-4b52-856f-6979a16b163f"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="9" width="80" height="20" uuid="7ff73cc8-737b-4f00-ab5f-06d5a4b8c9da"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="9" width="40" height="20" uuid="adbe6bb5-97fd-4ad6-92a3-46b9d08195ac"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
