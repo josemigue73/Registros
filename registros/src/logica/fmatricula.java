@@ -25,7 +25,7 @@ public class fmatricula {
    private Connection cn=mysql.conectar();
    private String sSQL="";
    public Integer totalregistros; 
-   private String travis2;
+   private String travis4;
    
    
    public DefaultTableModel mostrar(String buscar){
